@@ -37,6 +37,8 @@ uniform distribution of responsibilty
 CodeMap
 SysML
 
+LCOM Metric – Lack of Cohesion of Methods
+
 
 
 
