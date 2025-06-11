@@ -1,0 +1,42 @@
+Book name - Art of code readability
+https://www.amazon.in/Art-Readable-Code-Dustin-Boswell/dp/0596802293
+Functional programming in C++
+
+
+symptom => Code onbaord simplicity, ognitive complexity metric
+
+
+Paradigms:
+object oriented
+funtional programming
+
+OCP - Open close priniciple
+DRY - Donot copy paste - donot repeaat 
+DIP - dependency inversion => Dependecy injection
+
+FAT - dirty code
+
+
+Design principle
+SOLID - 
+S - Single responsibilty principle SRP (one function one logic/operaion)
+O - OCP open close principle - open for modiication close for entention
+L - 
+I - 
+D - 
+
+Closures - lamdas in C++
+Parametric polymorphism - to reuse of code
+
+dependency injection by container in c++
+
+cohesive is if object is - has data, relationship, interface, operaion- SRP single responsibilty principle 
+uniform distribution of encapsulation
+non communication 
+uniform distribution of responsibilty
+CodeMap
+SysML
+
+
+
+
