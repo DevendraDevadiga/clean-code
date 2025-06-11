@@ -74,52 +74,8 @@ public:
 
 class CNCMachineMonitor {
 private:
-    float temperature;
-    float dimensionVariation;
-    int continuousOperationMinutes;
-    int selfTestCode;
-
 public:
-    void updateTemperature(float valueCelsius) {
-        temperature = valueCelsius;
-        if (temperature > 35.0) {
-            cout << "ALERT: High temperature detected (Environment)" << endl;
-        }
-    }
 
-    void updateDimensionVariation(float variationMM) {
-        dimensionVariation = variationMM;
-        if (dimensionVariation > 0.05) {
-            cout << "ALERT: Part-dimension variation too high (Machine)" << endl;
-        }
-    }
-
-    void updateContinuousOperation(int minutes) {
-        continuousOperationMinutes = minutes;
-        if (continuousOperationMinutes > 360) {
-            cout << "ALERT: Continuous operation exceeded 6 hours (Machine)" << endl;
-        }
-    }
-
-    void checkSelfTestCode(int code) {
-        selfTestCode = code;
-        switch (code) {
-            case 0xFF:
-                cout << "Self-test OK" << endl;
-                break;
-            case 0x00:
-                cout << "ALERT: No data from machine (Environment)" << endl;
-                break;
-            case 0x01:
-                cout << "ALERT: Controller board failure (Machine)" << endl;
-                break;
-            case 0x02:
-                cout << "ALERT: Configuration data corrupted (Machine)" << endl;
-                break;
-            default:
-                cout << "ALERT: Unknown self-test code (Machine)" << endl;
-        }
-    }
 };
 
 int main() {
