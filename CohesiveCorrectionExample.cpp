@@ -6,12 +6,9 @@ using namespace std;
 
 
 class TemperatureMonitor {
-private:
-    float temperature;
 public:
     void updateTemperature(float valueCelsius) {
-        temperature = valueCelsius;
-        if (temperature > 35.0) {
+        if (valueCelsius > 35.0) {
             cout << "ALERT: High temperature detected (Environment)" << endl;
         }
     }
@@ -19,13 +16,9 @@ public:
 
 
 class DimentionMonitor {
-private:
-    float dimensionVariation;
-
 public:
     void updateDimensionVariation(float variationMM) {
-        dimensionVariation = variationMM;
-        if (dimensionVariation > 0.05) {
+        if (variationMM > 0.05) {
             cout << "ALERT: Part-dimension variation too high (Machine)" << endl;
         }
     }
@@ -33,13 +26,9 @@ public:
 
 
 class ContinousOperationMonitor {
-private:
-    int continuousOperationMinutes;
-
 public:
     void updateContinuousOperation(int minutes) {
-        continuousOperationMinutes = minutes;
-        if (continuousOperationMinutes > 360) {
+        if (minutes > 360) {
             cout << "ALERT: Continuous operation exceeded 6 hours (Machine)" << endl;
         }
     }
@@ -47,12 +36,8 @@ public:
 
 
 class SelfTestCodeReporter {
-private:
-    int selfTestCode;
-
 public:
     void checkSelfTestCode(int code) {
-        selfTestCode = code;
         switch (code) {
             case 0xFF:
                 cout << "Self-test OK" << endl;
@@ -80,9 +65,9 @@ private:
     SelfTestReporter testReporter;
 public:
     void process(float temperature, float variation, int minutes, int code) {
-        tempMonitor.update(temperature);
-        dimMonitor.update(variation);
-        opMonitor.update(minutes);
+        tempMonitor.updateTemperature(temperature);
+        dimMonitor.updateDimensionVariation(variation);
+        opMonitor.updateContinuousOperation(minutes);
         testReporter.report(code);
     }
 };
