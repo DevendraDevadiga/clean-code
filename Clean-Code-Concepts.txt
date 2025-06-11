@@ -39,6 +39,9 @@ SysML
 
 LCOM Metric – Lack of Cohesion of Methods
 
+is-a inheritance - child must inherit complete operaion of parent (no partial), parent should be supirio, parent should have operaion of child required  
+hs-a - no inheritance, communication only or interaction only
+
 
 
 
