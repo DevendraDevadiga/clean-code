@@ -74,8 +74,17 @@ public:
 
 class CNCMachineMonitor {
 private:
+    TemperatureMonitor tempMonitor;
+    DimensionMonitor dimMonitor;
+    OperationMonitor opMonitor;
+    SelfTestReporter testReporter;
 public:
-
+    void process(float temperature, float variation, int minutes, int code) {
+        tempMonitor.update(temperature);
+        dimMonitor.update(variation);
+        opMonitor.update(minutes);
+        testReporter.report(code);
+    }
 };
 
 int main() {
@@ -91,10 +100,7 @@ int main() {
     int minutes, selfTest;
 
     while (infile >> temp >> variation >> minutes >> hex >> selfTest) {
-        monitor.updateTemperature(temp);
-        monitor.updateDimensionVariation(variation);
-        monitor.updateContinuousOperation(minutes);
-        monitor.checkSelfTestCode(selfTest);
+        monitor.process(temp, variation, minutes, selfTest);
         cout << "---" << endl;
     }
 
