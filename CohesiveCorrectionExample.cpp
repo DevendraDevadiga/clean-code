@@ -4,6 +4,74 @@
 #include <string>
 using namespace std;
 
+
+class TemperatureMonitor {
+private:
+    float temperature;
+public:
+    void updateTemperature(float valueCelsius) {
+        temperature = valueCelsius;
+        if (temperature > 35.0) {
+            cout << "ALERT: High temperature detected (Environment)" << endl;
+        }
+    }
+};
+
+
+class DimentionMonitor {
+private:
+    float dimensionVariation;
+
+public:
+    void updateDimensionVariation(float variationMM) {
+        dimensionVariation = variationMM;
+        if (dimensionVariation > 0.05) {
+            cout << "ALERT: Part-dimension variation too high (Machine)" << endl;
+        }
+    }
+};
+
+
+class ContinousOperationMonitor {
+private:
+    int continuousOperationMinutes;
+
+public:
+    void updateContinuousOperation(int minutes) {
+        continuousOperationMinutes = minutes;
+        if (continuousOperationMinutes > 360) {
+            cout << "ALERT: Continuous operation exceeded 6 hours (Machine)" << endl;
+        }
+    }
+};
+
+
+class SelfTestCodeReporter {
+private:
+    int selfTestCode;
+
+public:
+    void checkSelfTestCode(int code) {
+        selfTestCode = code;
+        switch (code) {
+            case 0xFF:
+                cout << "Self-test OK" << endl;
+                break;
+            case 0x00:
+                cout << "ALERT: No data from machine (Environment)" << endl;
+                break;
+            case 0x01:
+                cout << "ALERT: Controller board failure (Machine)" << endl;
+                break;
+            case 0x02:
+                cout << "ALERT: Configuration data corrupted (Machine)" << endl;
+                break;
+            default:
+                cout << "ALERT: Unknown self-test code (Machine)" << endl;
+        }
+    }
+};
+
 class CNCMachineMonitor {
 private:
     float temperature;
